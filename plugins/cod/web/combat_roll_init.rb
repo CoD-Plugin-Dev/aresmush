@@ -2,7 +2,7 @@ module AresMUSH
   module CoD
     class CombatRollInitHandler
       def handle(request)
-        scene = Scene[request.['scene_id']]
+        scene = Scene[request.args['scene_id']]
         combat = Combat[request.args['combat_id']]
         modifier = (request.args['modifier'] || 0).to_i
         enactor = request.enactor
