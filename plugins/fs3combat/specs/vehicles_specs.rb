@@ -27,8 +27,8 @@ module AresMUSH
           allow(@instance).to receive(:find_vehicle_by_name).with("Viper") { nil }
           v = double
           allow(Vehicle).to receive(:create) do |args|
-            expect(args[:combat]).to eq @instance
-            expect(args[:vehicle_type]).to eq "Viper"
+            expect(args['combat']).to eq @instance
+            expect(args['vehicle_type']).to eq "Viper"
             v
           end
           expect(FS3Combat.find_or_create_vehicle(@instance, "Viper")).to eq v
