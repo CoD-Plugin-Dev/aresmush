@@ -2,7 +2,7 @@ module AresMUSH
   module CoD
     class UpdateNpcHandler
       def handle(request)
-        combat = Combat[request.['combat_id']]
+        combat = Combat[request.args['combat_id']]
         scene = Scene[combat.scene_id]
         npc = Npc[request.args['npc']['id']]
         enactor = request.enactor

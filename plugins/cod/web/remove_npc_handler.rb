@@ -2,7 +2,7 @@ module AresMUSH
   module CoD
     class RemoveNpcHandler
       def handle(request)
-        combat = Combat[request.['combat_id']]
+        combat = Combat[request.args['combat_id']]
         scene = Scene[combat.scene_id]
         npc = Npc.named(request.args['npc'])
         enactor = request.enactor
