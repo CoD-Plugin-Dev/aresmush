@@ -1,15 +1,18 @@
 module AresMUSH
   module Scenes
-    
+
     def self.custom_char_card_fields(char, viewer)
-      
-      # Return nil if you don't need any custom fields.
-      return nil
-      
-      # Otherwise return a hash of data.  For example, if you want to show traits you could do:
-      # {
-      #   traits: char.traits.map { |k, v| { name: k, description: v } }
-      # }
+      sheet = char.sheet.template_config
+      sheet[:id] = char.id
+      sheet[:name] = char.name
+      [:template, :health, :agg_wounds, :lethal_wounds, :bashing_wounds].each do |f|
+        sheet[f] = char.sheet.public_send(f)
+      end
+
+      {
+        is_st: CoD.is_st?(char),
+        sheet: sheet
+      }
     end
   end
 end

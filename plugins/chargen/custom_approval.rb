@@ -1,20 +1,15 @@
 module AresMUSH
   module Chargen
     def self.custom_approval(char)
-            
-      # If you don't want to have any custom approval steps, just leave this blank.
-      
-      # Otherwise, do what you need to do.  Here's an example of how to add
-      # someone to a role based on their faction:
-      #
-      #  faction = char.group("Faction")
-      #  role = Role.find_by_name(faction)
-      #
-      #  if (role)
-      #    char.roles.add role
-      #  end
-      #
-      # See https://www.aresmush.com/tutorials/config/chargen.html for details.
+      starting_xp = Global.read_config('cod', 'starting_xp')
+      if starting_xp && char.sheet.xp == 0
+        CoD.award_xp(Game.master.system_character, char.sheet, starting_xp, msg = nil)
+      end
+
+      power = CoD.get_template_config(char.sheet.template)&.dig(:power, :name)
+      return if !power
+
+      char.sheet.merits.each { |m| m.delete if m.name == "#{power} Increase" }
     end
   end
 end
