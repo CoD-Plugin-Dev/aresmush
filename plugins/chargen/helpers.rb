@@ -143,6 +143,7 @@ module AresMUSH
         end
       end
       
+      Global.logger.debug "char: #{char} chargen_data: #{chargen_data}"
       errors = Profile::CustomCharFields.save_fields_from_chargen(char, chargen_data) || []
       if (errors.class == Array && errors.any?)
         alerts.concat errors

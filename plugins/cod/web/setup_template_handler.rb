@@ -22,7 +22,7 @@ module AresMUSH
 
           allowed_templates.each { |t|
             role = Role.find_one_by_name(CoD.to_key(t))
-            return { error: "Invalide Role: #{t}" } if !role
+            return { error: "Invalid Role: #{t}" } if !role
             char.roles.delete(role) if char.has_role?(CoD.to_key(t))
           }
           role = Role.find_one_by_name(CoD.to_key(template))

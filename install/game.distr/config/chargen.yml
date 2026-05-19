@@ -59,17 +59,28 @@ chargen:
   stages:
     start:
       title: Chargen Commands
-      text: Our chargen is exclusive on the web portal. Please select `Create a Character`
-        from the `Getting Started` menu to begin!
+      text: You can do chargen either on the web portal (help web portal) or in-game.  They
+        both have the same information - it's just a matter of preference.%R%RIf you
+        choose to use the in-game chargen, the %xccg%xn command will walk you through
+        the necessary steps.%R%RYou can go back and forth through the steps of chargen
+        as much as you want using %xccg/next%xn and %xccg/prev%xn.
     app:
       title: App Review
-      text: The `Review` button is your friend during chargen. It will alert you to
+      text: The `app` command is your friend during chargen.  It will alert you to
         things you may have forgotten to set.  %xrred%xn issues will almost certainly
-        prevent your character from being approved (like forgetting to set your template).
-        %xyYellow%xn issues are warnings; they might actually be OK if it fits the
-        character concept.
+        prevent your character from being approved (like forgetting to set your eye
+        color).  %xyYellow%xn issues are warnings; they might actually be OK if it
+        fits the character concept.
+    sheet:
+      help: sheets
     demographics:
       help: demographics
+    groups:
+      help: groups
+    ranks:
+      help: ranks
+    abilities:
+      help: skills
     background:
       help: backgrounds
     desc:
@@ -84,28 +95,24 @@ chargen:
       help: idle_out
     review:
       title: App Submission
-      text: You've completed chargen! Review your app one more time, and use `Submit`
-        to submit your character when ready. The admins will make sure it's a good
-        fit for the game's theme, that the skills are reasonable given the background,
-        and that you haven't missed anything important in chargen. See `help apps`
-        for additional help on the app review process.
+      text: You've completed chargen!  Review your app one more time, and use `app/submit
+        [<optional notes>]` to submit your character when ready.  The admins will
+        make sure it's a good fit for the game's theme, that the skills are reasonable
+        given the background, and that you haven't missed anything important in chargen.
+        See `help apps` for additional help on the app review process.
   welcome_message: |-
-    Please welcome %{name}, our newest %{template}!
+    Please welcome %{name}, our latest %{position} to be approved!
 
     Profile: %{profile_link}
 
     RP Hooks:
-
     %{rp_hooks}
   permissions:
     manage_apps: Approve and reject character apps.
     view_bgs: Can view other characters' backgrounds
     submit_app: Can submit chargen application.
   app_notes_prompt: If you want to make any special notes about your application,
-    you can enter them below. For Merit notes, custom Anchors, ability details, or
-    other required template items (e.g., Touchstones, Frailties, etc.), please set
-    these in the Ledger section of your character page, either in the appropriate
-    sphere-specific tab, or in the Notes tab.
+    you can enter them below.
   max_bg_length: 50
   intro_blurb: The online character creation tool will guide you through creating
     your character.
