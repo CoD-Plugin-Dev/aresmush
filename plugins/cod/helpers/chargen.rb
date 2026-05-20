@@ -7,7 +7,7 @@ module AresMUSH
     end
 
     def self.save_chargen(char, data)
-      sheet = data[:custom][:cg_sheet]
+      sheet = data['custom']['cg_sheet']
       c_abilities = get_template_config(char.sheet.template)[:abilities]
       c_abilities = c_abilities ? c_abilities.map { |c| c['key'].to_sym } : []
       (c_abilities + [:attributes, :skills, :specialties, :merits, :fields]).each do |f|
