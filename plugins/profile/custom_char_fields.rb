@@ -16,7 +16,8 @@ module AresMUSH
         return CoD.can_view_sheets?(viewer) ? {
           sheet: char.sheet.to_h,
           config: Global.read_config('cod', 'client'),
-        } : {}
+          ledger: Ledger.build_ledger_view(viewer, char)
+        } : {ledger: Ledger.build_ledger_view(viewer, char)}
       end
 
       # Gets custom fields for the character profile editor.
