@@ -22,7 +22,7 @@ module AresMUSH
         res, error, dice = CoD.build_roll_emit({
           enactor: enactor,
           char: char,
-          target: data['target'].empty? ? nil : data['target'],
+          target: !data['target'] ? nil : data['target'],
           opposed: CoD.to_b(data['opposed']),
           modified: CoD.to_b(data['modified']),
           wp: CoD.to_b(data['wp']),
