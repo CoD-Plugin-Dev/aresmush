@@ -99,7 +99,8 @@ module AresMUSH
         rp_hooks: model.rp_hooks || t('global.none'),
         profile_link: "#{Game.web_portal_url}/char/#{model.name}",
         position: '',
-        faction: '' }
+        faction: '' ,
+        template: model.sheet.template }
       
       Demographics.all_groups.keys.each do |k|
         args[k.downcase.to_sym] = model.group(k)
