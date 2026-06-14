@@ -32,7 +32,8 @@ module AresMUSH
       def self.get_fields_for_editing(char, viewer)
         return CoD.can_view_sheets?(viewer) ? {
           sheet: char.sheet.to_h,
-          config: Global.read_config('cod', 'client')
+          config: Global.read_config('cod', 'client'),
+          looking_for_rp_announce: char.looking_for_rp_announce == "on" ? true : false ,
         } : {}
       end
 
@@ -87,7 +88,8 @@ module AresMUSH
       def self.save_fields_from_profile_edit2(char, enactor, char_data)
         # By default, this calls the old method for backwards compatibility. The old one didn't
         # use enactor. Replace this with your own code.
-        return CustomCharFields.save_fields_from_profile_edit(char, char_data)
+        # TEMPORARY FOR TESTING LFRP return CustomCharFields.save_fields_from_profile_edit(char, char_data)
+        char.update(looking_for_rp_announce: Website.format_input_for_mush(char_data["custom"]["looking_for_rp_announce"] == true ? "on" : "off"))
       end
 
       
