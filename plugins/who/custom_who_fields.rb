@@ -21,7 +21,7 @@ module AresMUSH
           when "text"
             flag = "%xmTXT%xn"
         end
-        Global.logger.debug "Width: #{width}"
+        Global.logger.debug "Width: #{width}, flag: #{flag}, flag with ljust: #{flag.ljust(width)}"
         return looking_for_rp ? flag.ljust(width) : ""
       else 
         return nil
