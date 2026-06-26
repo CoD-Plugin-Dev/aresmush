@@ -21,7 +21,7 @@ module AresMUSH
           when "text"
             flag = "%xmTXT%xn"
         end
-        return looking_for_rp ? flag : ""
+        return looking_for_rp ? flag.ljust(width) : ""
       else 
         return nil
       end
