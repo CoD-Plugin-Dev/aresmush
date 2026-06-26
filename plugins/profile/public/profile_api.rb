@@ -4,15 +4,15 @@ module AresMUSH
       client = Login.find_game_client(char)
       case field_type
 
-      when 'lookingforrp'
-        looking_for_rp = char.looking_for_rp
-        case char.looking_for_rp_type
-          when "scene"
-            flag = "%xgRP%xn"
-          when "text"
-            flag = "%xmTXT%xn"
-        end
-        looking_for_rp ? flag : ""
+      #when 'lookingforrp'
+      #  looking_for_rp = char.looking_for_rp
+      #  case char.looking_for_rp_type
+      #    when "scene"
+      #      flag = "%xgRP%xn"
+      #    when "text"
+      #      flag = "%xmTXT%xn"
+      #  end
+      #  looking_for_rp ? flag : ""
 
       when 'demographic'
         char.demographic(value)
