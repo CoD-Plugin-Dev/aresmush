@@ -13,7 +13,9 @@ module AresMUSH
         is_st: CoD.is_st?(char),
         char: sheet,
         config: Global.read_config('cod', 'client'),
-        settings: char.cod_settings
+        settings: char.cod_settings,
+        lfrp_icons: LookingForRp.web_list,
+        txt_extra_installed: Manage.is_extra_installed?("txt")
       }
     end
 
